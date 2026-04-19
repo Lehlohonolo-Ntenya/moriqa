@@ -10,85 +10,134 @@
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-    background: #FFFFFF;
+    background: #F8FAFC;
     color: #111827;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: auto;
 }
 
 /* NAVBAR */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 60px;
+    padding: 22px 40px;
+    background: white;
     border-bottom: 1px solid #E5E7EB;
 }
 
-nav h2 {
-    margin: 0;
-    font-size: 16px;
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 28px;
+}
+
+.logo strong {
+    font-size: 15px;
     letter-spacing: 1px;
 }
 
+/* LINKS */
 nav a {
     text-decoration: none;
     color: #6B7280;
     margin-left: 30px;
     font-size: 14px;
+    position: relative;
 }
 
-nav a:hover {
-    color: black;
+nav a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #1D4ED8;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 /* HERO */
 header {
-    padding: 120px 60px 60px;
-    max-width: 900px;
+    padding: 120px 40px 90px;
+    background: linear-gradient(to bottom, #ffffff, #EEF2FF);
+}
+
+.hero-inner {
+    max-width: 750px;
 }
 
 header h1 {
-    font-size: 48px;
-    line-height: 1.2;
+    font-size: 54px;
+    line-height: 1.1;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
 header p {
     font-size: 18px;
     color: #4B5563;
-    max-width: 600px;
-    margin-bottom: 30px;
+    line-height: 1.6;
+    margin-bottom: 35px;
 }
 
-/* CTA */
+/* BUTTON */
 .cta {
     display: inline-block;
-    padding: 12px 22px;
-    background: black;
+    padding: 14px 26px;
+    background: #1D4ED8;
     color: white;
     text-decoration: none;
     font-size: 14px;
+    border-radius: 4px;
+    transition: 0.2s;
 }
 
-/* SECTIONS */
+.cta:hover {
+    background: #1E40AF;
+}
+
+/* SECTION */
 section {
-    padding: 80px 60px;
-    max-width: 1000px;
+    padding: 90px 40px;
 }
 
 h2 {
-    font-size: 20px;
-    margin-bottom: 30px;
+    font-size: 13px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #1D4ED8;
 }
 
 /* SERVICES */
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
 }
 
+.service {
+    padding-right: 20px;
+}
+
 .service h3 {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
@@ -97,24 +146,19 @@ h2 {
     line-height: 1.6;
 }
 
-/* APPROACH */
-.approach {
+/* DIVIDER */
+.divider {
     border-top: 1px solid #E5E7EB;
-    padding-top: 60px;
 }
 
+/* APPROACH */
 .approach p {
-    max-width: 700px;
-    color: #4B5563;
+    max-width: 650px;
     line-height: 1.7;
+    color: #4B5563;
 }
 
 /* CONTACT */
-.contact {
-    border-top: 1px solid #E5E7EB;
-    padding-top: 60px;
-}
-
 .contact p {
     color: #4B5563;
     margin-bottom: 10px;
@@ -123,7 +167,7 @@ h2 {
 /* FOOTER */
 footer {
     border-top: 1px solid #E5E7EB;
-    padding: 40px 60px;
+    padding: 40px;
     font-size: 13px;
     color: #6B7280;
 }
@@ -132,72 +176,81 @@ footer {
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
-    <div style="display:flex; align-items:center; gap:10px;">
-        <img src="logo.png" style="height:30px;">
-        <h2>MORIQA</h2>
-    </div>
-        <a href="#">Capabilities</a>
-        <a href="#">Approach</a>
-        <a href="#">Contact</a>
+    <div class="container nav-inner">
+        <div class="logo">
+            <img src="logo.png">
+            <strong>MORIQA</strong>
+        </div>
+        <div>
+            <a href="#">Capabilities</a>
+            <a href="#">Approach</a>
+            <a href="#">Contact</a>
+        </div>
     </div>
 </nav>
 
 <!-- HERO -->
 <header>
-    <h1>
-        Data. Risk. Decisions.
-    </h1>
-    <p>
-        MORIQA is a data and risk intelligence firm helping organizations
-        understand complex systems and make better decisions with clarity and confidence.
-    </p>
-
-    <a href="#contact" class="cta">Work with us</a>
+    <div class="container hero-inner">
+        <h1>Data. Risk. Decisions.</h1>
+        <p>
+            MORIQA is a data and risk intelligence firm helping organizations
+            understand complex systems and make better decisions with clarity and confidence.
+        </p>
+        <a href="#contact" class="cta">Work with us</a>
+    </div>
 </header>
 
 <!-- SERVICES -->
-<section>
-    <h2>Capabilities</h2>
+<section class="divider">
+    <div class="container">
+        <h2>Capabilities</h2>
 
-    <div class="services">
-        <div class="service">
-            <h3>Analytics</h3>
-            <p>Advanced data analysis and modelling to support strategic decisions.</p>
-        </div>
+        <div class="services">
+            <div class="service">
+                <h3>Analytics</h3>
+                <p>Advanced data analysis and modelling to support strategic decisions.</p>
+            </div>
 
-        <div class="service">
-            <h3>Risk</h3>
-            <p>Identification and management of financial and operational risks.</p>
-        </div>
+            <div class="service">
+                <h3>Risk</h3>
+                <p>Identification and management of financial and operational risks.</p>
+            </div>
 
-        <div class="service">
-            <h3>Advisory</h3>
-            <p>Practical, insight-driven recommendations grounded in real-world constraints.</p>
+            <div class="service">
+                <h3>Advisory</h3>
+                <p>Practical, insight-driven recommendations grounded in real-world constraints.</p>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- APPROACH -->
-<section class="approach">
-    <h2>Our Approach</h2>
-    <p>
-        Most organizations do not have a data problem — they have a decision problem.
-        MORIQA focuses on bridging that gap by turning complex data into clear,
-        actionable insight. Our work emphasizes simplicity, rigor, and relevance.
-    </p>
+<section class="divider approach">
+    <div class="container">
+        <h2>Our Approach</h2>
+        <p>
+            Most organizations do not have a data problem — they have a decision problem.
+            MORIQA bridges that gap by turning complex data into clear, actionable insight.
+        </p>
+    </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Email: yourname@email.com</p>
-    <p>Location: Maseru, Lesotho</p>
+<section class="divider contact" id="contact">
+    <div class="container">
+        <h2>Contact</h2>
+        <p>Email: ntenyalehlohonolo"gmail.com</p>
+        <p>Location: Maseru, Lesotho</p>
+    </div>
 </section>
 
 <footer>
-    © 2026 MORIQA. All rights reserved.
+    <div class="container">
+        © 2026 MORIQA. All rights reserved.
+    </div>
 </footer>
 
 </body>
