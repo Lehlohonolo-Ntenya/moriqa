@@ -9,25 +9,23 @@
 <style>
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-    background: #F8FAFC;
-    color: #111827;
+    font-family: Arial, sans-serif;
+    background: #F5F7FA;
+    color: #111;
 }
 
-/* CONTAINER */
-.container {
-    max-width: 1100px;
-    margin: auto;
+/* TOP NAV */
+.topbar {
+    background: #0B1F33;
+    color: white;
+    padding: 10px 40px;
+    font-size: 14px;
 }
 
 /* NAVBAR */
 nav {
-    padding: 22px 40px;
     background: white;
-    border-bottom: 1px solid #E5E7EB;
-}
-
-.nav-inner {
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,214 +41,182 @@ nav {
     height: 28px;
 }
 
-.logo strong {
-    font-size: 15px;
-    letter-spacing: 1px;
-}
-
-/* LINKS */
 nav a {
+    margin-left: 25px;
     text-decoration: none;
-    color: #6B7280;
-    margin-left: 30px;
+    color: #555;
     font-size: 14px;
-    position: relative;
 }
 
-nav a::after {
-    content: "";
-    width: 0%;
-    height: 2px;
-    background: #1D4ED8;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    transition: 0.3s;
-}
-
-nav a:hover::after {
-    width: 100%;
+nav a:hover {
+    color: black;
 }
 
 /* HERO */
-header {
-    padding: 120px 40px 90px;
-    background: linear-gradient(to bottom, #ffffff, #EEF2FF);
+.hero {
+    position: relative;
+    height: 400px;
+    background: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df') center/cover;
+    display: flex;
+    align-items: center;
 }
 
-.hero-inner {
-    max-width: 750px;
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(11,31,51,0.75);
 }
 
-header h1 {
-    font-size: 54px;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-header p {
-    font-size: 18px;
-    color: #4B5563;
-    line-height: 1.6;
-    margin-bottom: 35px;
-}
-
-/* BUTTON */
-.cta {
-    display: inline-block;
-    padding: 14px 26px;
-    background: #1D4ED8;
+.hero-content {
+    position: relative;
     color: white;
-    text-decoration: none;
-    font-size: 14px;
-    border-radius: 4px;
-    transition: 0.2s;
+    padding: 0 40px;
+    max-width: 600px;
 }
 
-.cta:hover {
-    background: #1E40AF;
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* CTA */
+.cta {
+    background: #0B1F33;
+    color: white;
+    padding: 12px 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* ACTION BAR */
+.actions {
+    background: #0B1F33;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.actions div {
+    text-align: center;
+    font-size: 14px;
 }
 
 /* SECTION */
 section {
-    padding: 90px 40px;
+    padding: 60px 40px;
+    max-width: 1000px;
+    margin: auto;
 }
 
 h2 {
-    font-size: 13px;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #1D4ED8;
+    margin-bottom: 30px;
 }
 
 /* SERVICES */
 .services {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .service {
-    padding-right: 20px;
-}
-
-.service h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.service p {
-    color: #6B7280;
-    line-height: 1.6;
-}
-
-/* DIVIDER */
-.divider {
-    border-top: 1px solid #E5E7EB;
-}
-
-/* APPROACH */
-.approach p {
-    max-width: 650px;
-    line-height: 1.7;
-    color: #4B5563;
-}
-
-/* CONTACT */
-.contact p {
-    color: #4B5563;
-    margin-bottom: 10px;
+    background: white;
+    padding: 20px;
+    flex: 1;
+    border: 1px solid #E5E7EB;
 }
 
 /* FOOTER */
 footer {
-    border-top: 1px solid #E5E7EB;
-    padding: 40px;
-    font-size: 13px;
-    color: #6B7280;
+    background: #0B1F33;
+    color: white;
+    text-align: center;
+    padding: 30px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
+<div class="topbar">
+    MORIQA | Data & Risk Intelligence
+</div>
+
 <nav>
-    <div class="container nav-inner">
-        <div class="logo">
-            <img src="logo.png">
-            <strong>MORIQA</strong>
-        </div>
-        <div>
-            <a href="#">Capabilities</a>
-            <a href="#">Approach</a>
-            <a href="#">Contact</a>
-        </div>
+    <div class="logo">
+        <img src="logo.png">
+        <strong>MORIQA</strong>
+    </div>
+
+    <div>
+        <a href="#">Capabilities</a>
+        <a href="#">Approach</a>
+        <a href="#">Contact</a>
     </div>
 </nav>
 
-<!-- HERO -->
-<header>
-    <div class="container hero-inner">
+<div class="hero">
+    <div class="hero-content">
         <h1>Data. Risk. Decisions.</h1>
         <p>
             MORIQA is a data and risk intelligence firm helping organizations
-            understand complex systems and make better decisions with clarity and confidence.
+            understand complex systems and make better decisions.
         </p>
-        <a href="#contact" class="cta">Work with us</a>
+        <a href="#" class="cta">Work with us</a>
     </div>
-</header>
+</div>
 
-<!-- SERVICES -->
-<section class="divider">
-    <div class="container">
-        <h2>Capabilities</h2>
+<div class="actions">
+    <div>Analytics</div>
+    <div>Risk</div>
+    <div>Advisory</div>
+</div>
 
-        <div class="services">
-            <div class="service">
-                <h3>Analytics</h3>
-                <p>Advanced data analysis and modelling to support strategic decisions.</p>
-            </div>
+<section>
+    <h2>Capabilities</h2>
 
-            <div class="service">
-                <h3>Risk</h3>
-                <p>Identification and management of financial and operational risks.</p>
-            </div>
+    <div class="services">
+        <div class="service">
+            <h3>Analytics</h3>
+            <p>Advanced data analysis and modelling.</p>
+        </div>
 
-            <div class="service">
-                <h3>Advisory</h3>
-                <p>Practical, insight-driven recommendations grounded in real-world constraints.</p>
-            </div>
+        <div class="service">
+            <h3>Risk</h3>
+            <p>Identification and management of risks.</p>
+        </div>
+
+        <div class="service">
+            <h3>Advisory</h3>
+            <p>Insight-driven recommendations.</p>
         </div>
     </div>
 </section>
 
-<!-- APPROACH -->
-<section class="divider approach">
-    <div class="container">
-        <h2>Our Approach</h2>
-        <p>
-            Most organizations do not have a data problem — they have a decision problem.
-            MORIQA bridges that gap by turning complex data into clear, actionable insight.
-        </p>
-    </div>
+<section>
+    <h2>Our Approach</h2>
+    <p>
+        MORIQA bridges the gap between data and decision-making by transforming
+        complexity into clear insight.
+    </p>
 </section>
 
-<!-- CONTACT -->
-<section class="divider contact" id="contact">
-    <div class="container">
-        <h2>Contact</h2>
-        <p>Email: ntenyalehlohonolo"gmail.com</p>
-        <p>Location: Maseru, Lesotho</p>
-    </div>
+<section>
+    <h2>Contact</h2>
+    <p>Email: ntenyalehlohono@gmail.com</p>
+     <p>Phone: +266 57092033</p>
+    <p>Location: Maseru, Lesotho</p>
 </section>
 
 <footer>
-    <div class="container">
-        © 2026 MORIQA. All rights reserved.
-    </div>
+    © 2026 MORIQA
 </footer>
 
 </body>
